@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.arsalankhan.balloongame.MainActivity"
+    android:id="@+id/activity_main">
+
+    <!-- For the pin -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp">
+
+        <ImageView
+            android:layout_width="@dimen/pin_size"
+            android:layout_height="@dimen/pin_size"
+            android:src="@drawable/pin"
+            android:id="@+id/pushpin1"
+            android:tint="@color/pin_color"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/pin_size"
+            android:layout_height="@dimen/pin_size"
+            android:src="@drawable/pin"
+            android:id="@+id/pushpin2"
+            android:tint="@color/pin_color"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/pin_size"
+            android:layout_height="@dimen/pin_size"
+            android:src="@drawable/pin"
+            android:id="@+id/pushpin3"
+            android:tint="@color/pin_color"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/pin_size"
+            android:layout_height="@dimen/pin_size"
+            android:src="@drawable/pin"
+            android:id="@+id/pushpin4"
+            android:tint="@color/pin_color"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/pin_size"
+            android:layout_height="@dimen/pin_size"
+            android:src="@drawable/pin"
+            android:id="@+id/pushpin5"
+            android:tint="@color/pin_color"
+            />
+    </LinearLayout>
+
+    <!--for bottom toolbar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/lightGray">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/play_game"
+            android:textSize="@dimen/text_size"
+            android:textAllCaps="false"
+            android:textColor="@color/pin_color"
+            android:layout_centerVertical="true"
+            style="?android:borderlessButtonStyle"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/level"
+                android:textSize="@dimen/text_size"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/pin_color"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="99"
+                android:id="@+id/tv_level"
+                android:textSize="@dimen/text_size"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/pin_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/score"
+                android:textSize="@dimen/text_size"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/pin_color"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size"
+                android:text="100"
+                android:id="@+id/tv_score"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/pin_color"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
