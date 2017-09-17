@@ -10,5 +10,5 @@ public class Constant {
     public static final int MIN_ANIMATION_DURATION=1000;
     public static final int MAX_ANIMATION_DURATION=8000;
     public static final int NUMBER_OF_PINS= 5;
-    public static final int BALLOONS_PER_LEVEL=3;
+    public static final int BALLOONS_PER_LEVEL=10;
 }

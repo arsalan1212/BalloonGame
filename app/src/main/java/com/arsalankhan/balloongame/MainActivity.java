@@ -16,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.arsalankhan.balloongame.util.Constant;
+import com.arsalankhan.balloongame.util.HighScoreHelper;
+import com.arsalankhan.balloongame.util.SimpleAlertDialog;
+import com.arsalankhan.balloongame.util.SoundHelper;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements Balloon.BalloonLi
     private boolean mStopedGame= true;
     private int mPoppedBalloons;
     private Button mGoButton;
+    private SoundHelper mSoundHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +96,9 @@ public class MainActivity extends AppCompatActivity implements Balloon.BalloonLi
 
         mGoButton = (Button) findViewById(R.id.goButton);
 
+        mSoundHelper = new SoundHelper();
+        mSoundHelper.prepareMusicPlayer(this);
+
 
         updateDisplay();
     }
@@ -145,6 +152,7 @@ private void startGame(){
     }
     mStopedGame = false;
     startLevel();
+    mSoundHelper.playMusic();
 
 }
     private void startLevel(){
@@ -164,7 +172,7 @@ private void startGame(){
 
         Toast.makeText(this, "You Finished Level: "+mLevel, Toast.LENGTH_SHORT).show();
         mPlaying = false;
-        mGoButton.setText("Start Level "+mLevel+1);
+        mGoButton.setText(String.format("Start Level %d ",mLevel+1));
     }
     @Override
     public void poppedBalloon(Balloon balloon, boolean userTouch) {
@@ -206,7 +214,7 @@ private void startGame(){
         }
     }
 
-    private void gameOver(boolean b) {
+    private void gameOver(boolean allPinsUsed) {
 
 
             for(Balloon balloons : mBalloons){
@@ -220,6 +228,22 @@ private void startGame(){
             mPlaying =false;
             mStopedGame = true;
             mGoButton.setText("Start Game");
+            mSoundHelper.pauseMusic();
+
+
+           if(allPinsUsed){
+
+               if(HighScoreHelper.isTopScore(this,mScore)){
+
+                   HighScoreHelper.setTopScore(this, mScore);
+
+                   SimpleAlertDialog dialog = SimpleAlertDialog.newInstance("New High Score",
+                                     "Your New High Score is "+mScore);
+
+                   dialog.show(getFragmentManager(),null);
+               }
+           }
+
         }
 
 
