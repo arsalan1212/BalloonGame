@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements Balloon.BalloonLi
 
         mGoButton = (Button) findViewById(R.id.goButton);
 
-        mSoundHelper = new SoundHelper();
+        mSoundHelper = new SoundHelper(this);
         mSoundHelper.prepareMusicPlayer(this);
 
 
@@ -178,6 +178,8 @@ private void startGame(){
     public void poppedBalloon(Balloon balloon, boolean userTouch) {
 
         mContentView.removeView(balloon);
+
+        mSoundHelper.playSound();
 
         mPoppedBalloons++;
 
