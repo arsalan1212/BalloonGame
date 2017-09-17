@@ -97,6 +97,17 @@ public class Balloon extends AppCompatImageView implements Animator.AnimatorList
         return super.onTouchEvent(event);
     }
 
+    //This is called from MainActivity when the gameOver and remove the Balloons from screen so also cancel it animation
+    public void setPopped(boolean popped) {
+
+        mPopped = popped;
+
+        if(mPopped){
+
+            valueAnimator.cancel();
+        }
+    }
+
     public interface BalloonListener {
       void poppedBalloon(Balloon balloon, boolean userTouch);
     }
